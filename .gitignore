@@ -1,0 +1,63 @@
+# Python bytecode files
+__pycache__/
+*.py[cod]
+
+# Virtual environment folder (common names)
+venv/
+env/
+.venv/
+.env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VSCode settings folder
+.vscode/
+
+# PyCharm settings folder
+.idea/
+
+# MyPy and other linters
+.mypy_cache/
+.pyre/
+
+# Coverage reports
+.coverage
+coverage.xml
+*.coveragerc
+nosetests.xml
+test_*.xml
+
+# Dist and build folders for packaging
+build/
+dist/
+*.egg-info/
+
+# Environment variables file
+.env
+
+# Log files
+*.log
+
+# FastAPI-specific files
+*.db
+*.sqlite3
+
+# Docker-related files (optional)
+docker-compose.yml
+Dockerfile
+
+# Pycharm or other IDE-related files (optional)
+.idea/
+
+# Flask migrations folder (optional)
+migrations/
+
+# pytest cache
+.pytest_cache/
+
+# Sphinx documentation build
+docs/_build/
+
+# Bandit security tool
+.bandit/
