@@ -1,6 +1,8 @@
 from sqlalchemy.orm import Session
-from app.models import Product, Order, OrderItem
-from app.schemas import ProductCreate, OrderCreate
+
+from app.models import Order, OrderItem, Product
+from app.schemas import OrderCreate, ProductCreate
+
 
 # Create Product
 def create_product(db: Session, product: ProductCreate):
@@ -10,19 +12,23 @@ def create_product(db: Session, product: ProductCreate):
     db.refresh(db_product)
     return db_product
 
+
 # Get all Products
 def get_products(db: Session, skip: int = 0, limit: int = 100):
     return db.query(Product).offset(skip).limit(limit).all()
+
 
 # Create Order
 def create_order(db: Session, order: OrderCreate):
     total_price = 0.0
     order_items = []
-    
+
     for item in order.products:
         if item.quantity <= 0:
-            raise ValueError(f"Quantity for product {item.product_id} must be greater than zero.")
-        
+            raise ValueError(
+                f"Quantity for product {item.product_id} must be greater than zero."
+            )
+
         product = db.query(Product).filter(Product.id == item.product_id).first()
         if product and product.stock >= item.quantity:
             total_price += product.price * item.quantity
@@ -40,8 +46,8 @@ def create_order(db: Session, order: OrderCreate):
     for order_item in order_items:
         order_item.order_id = db_order.id  # Make sure to set the order_id
         db.add(order_item)
-    
+
     db.commit()
     db.refresh(db_order)
-    
+
     return db_order

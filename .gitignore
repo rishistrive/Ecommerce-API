@@ -35,9 +35,11 @@ dist/
 
 # Environment variables file
 .env
+.envrc
 
 # Log files
 *.log
+logs/
 
 # FastAPI-specific files
 *.db
@@ -46,9 +48,6 @@ dist/
 # Docker-related files (optional)
 docker-compose.yml
 Dockerfile
-
-# Pycharm or other IDE-related files (optional)
-.idea/
 
 # Flask migrations folder (optional)
 migrations/
@@ -61,3 +60,18 @@ docs/_build/
 
 # Bandit security tool
 .bandit/
+
+# Pre-commit hooks & Linter configurations
+.flake8
+.pre-commit-config.yaml
+
+# Alembic migrations
+alembic.ini
+alembic/
+
+# SQLAlchemy debug logs
+sqlalchemy.log
+
+# SSH and security-related files (optional)
+*.pem
+*.key

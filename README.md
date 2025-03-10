@@ -42,7 +42,7 @@ git clone https://github.com/rishistrive/Ecommerce-API.git
 cd ecommerce-api
 ```
 
-### 2. Create Postgres database user and password 
+### 2. Create Postgres database user and password
 
 ```bash
 CREATE DATABASE ecommerce_db;
@@ -51,8 +51,16 @@ CREATE USER postgres WITH ENCRYPTED PASSWORD 'developer';
 
 ### 3. Rename the .env.example file to .env
 
-### 4. start the application using docker 
+### 4. start the application using docker
 
 ```bash
 Docker compose up --build
+```
+
+
+### 4. DB for testcases
+```bash
+CREATE DATABASE test_db;
+CREATE USER test_user WITH PASSWORD 'test_password';
+GRANT ALL PRIVILEGES ON DATABASE test_db TO test_user;
 ```
